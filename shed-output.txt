@@ -1,0 +1,5 @@
+18-29  sold items in the past month:  17.1%
+30-44  sold items in the past month:  16.9%
+45-59  sold items in the past month:  13.0%
+60+    sold items in the past month:   7.4%
+all    sold items in the past month:  13.1%

@@ -1,0 +1,132 @@
+
+== The top earner: maximum benefit, median savings: $2,969/month ==
+  Rent, with utilities (Census ACS 2024 median gross rent)       $   1,487
+  Car payment, used car (Experian Q2 2026)                       $     542
+  Car insurance (CE, per vehicle)                                $      89
+  Gasoline (CE, per vehicle)                                     $     100
+  Car maintenance (CE, per vehicle)                              $      46
+  Food at home (USDA low-cost plan, woman 51-70, Sep 2026)       $     269
+  Phone (CE telephone services, per person)                      $      60
+  Health insurance, benchmark silver after tax credit            $     226
+  Doctor, drugs, supplies out of pocket (CE, per person)         $      91
+  Clothing (CE, per person)                                      $      77
+  Personal care (CE, per person)                                 $      39
+  Household supplies (CE, per person)                            $      39
+  Internet (BLS CE 2024, all households, $697.90/yr; src/gaps-b/b07) $      58
+  Total, first month                                             $   3,123
+  (health insurance before the credit: $1,405)
+  From 65, Medicare replaces it: $410/month at 65, $451 at 71, in 2026 prices
+  Car loan ends after month 67.7; replacement car bought in month 82 (age 68), payment $637
+  Monthly gap: $-154
+  Year  age  benefit/mo  SNAP/mo  costs/mo   gap/yr     savings left (start $86,900)
+     1   62  $    2,969  $     0  $   3,123  $   -1,850  $     +85,050
+     2   63  $    3,047  $     0  $   3,194  $   -1,759  $     +83,291
+     3   64  $    3,127  $     0  $   3,266  $   -1,666  $     +81,625
+     4   65  $    3,209  $     0  $   3,540  $   -3,968  $     +77,657
+     5   66  $    3,294  $     0  $   3,629  $   -4,018  $     +73,639
+     6   67  $    3,381  $     0  $   3,539  $   -1,904  $     +71,735
+     7   68  $    3,469  $     0  $   3,379  $   +1,084  $     +72,819
+     8   69  $    3,561  $     0  $   4,008  $   -5,368  $     +67,452
+     9   70  $    3,654  $     0  $   4,109  $   -5,454  $     +61,997
+    10   71  $    3,750  $     0  $   4,213  $   -5,547  $     +56,450
+
+== The average retiree: average benefit, median savings: $2,071/month ==
+  Rent, with utilities (Census ACS 2024 median gross rent)       $   1,487
+  Car payment, used car (Experian Q2 2026)                       $     542
+  Car insurance (CE, per vehicle)                                $      89
+  Gasoline (CE, per vehicle)                                     $     100
+  Car maintenance (CE, per vehicle)                              $      46
+  Food at home (USDA low-cost plan, woman 51-70, Sep 2026)       $     269
+  Phone (CE telephone services, per person)                      $      60
+  Health insurance, benchmark silver after tax credit            $      96
+  Doctor, drugs, supplies out of pocket (CE, per person)         $      91
+  Clothing (CE, per person)                                      $      77
+  Personal care (CE, per person)                                 $      39
+  Household supplies (CE, per person)                            $      39
+  Internet (BLS CE 2024, all households, $697.90/yr; src/gaps-b/b07) $      58
+  Total, first month                                             $   2,993
+  (health insurance before the credit: $1,405)
+  From 65, Medicare replaces it: $410/month at 65, $451 at 71, in 2026 prices
+  Car loan ends after month 67.7; replacement car bought in month 82 (age 68), payment $637
+  Monthly gap: $-922
+  Year  age  benefit/mo  SNAP/mo  costs/mo   gap/yr     savings left (start $86,900)
+     1   62  $    2,071  $    24  $   2,993  $  -10,768  $     +76,132
+     2   63  $    2,125  $    25  $   3,059  $  -10,908  $     +65,224
+     3   64  $    2,181  $    25  $   3,128  $  -11,062  $     +54,162
+     4   65  $    2,239  $   133  $   3,540  $  -14,021  $     +40,141
+     5   66  $    2,298  $   141  $   3,629  $  -14,286  $     +25,855
+     6   67  $    2,358  $   149  $   3,539  $  -12,391  $     +13,464
+     7   68  $    2,420  $   157  $   3,379  $   -9,620  $      +3,845
+     8   69  $    2,484  $   167  $   4,008  $  -16,291  $     -12,447
+     9   70  $    2,549  $   176  $   4,109  $  -16,603  $     -29,049
+    10   71  $    2,616  $   186  $   4,213  $  -16,925  $     -45,974
+
+== The widow: average survivor's benefit, median savings: $1,919/month ==
+  Rent, with utilities (Census ACS 2024 median gross rent)       $   1,487
+  Car payment, used car (Experian Q2 2026)                       $     542
+  Car insurance (CE, per vehicle)                                $      89
+  Gasoline (CE, per vehicle)                                     $     100
+  Car maintenance (CE, per vehicle)                              $      46
+  Food at home (USDA low-cost plan, woman 51-70, Sep 2026)       $     269
+  Phone (CE telephone services, per person)                      $      60
+  Health insurance, benchmark silver after tax credit            $      77
+  Doctor, drugs, supplies out of pocket (CE, per person)         $      91
+  Clothing (CE, per person)                                      $      77
+  Personal care (CE, per person)                                 $      39
+  Household supplies (CE, per person)                            $      39
+  Internet (BLS CE 2024, all households, $697.90/yr; src/gaps-b/b07) $      58
+  Total, first month                                             $   2,974
+  (health insurance before the credit: $1,405)
+  From 65, Medicare replaces it: $410/month at 65, $451 at 71, in 2026 prices
+  Car loan ends after month 67.7; replacement car bought in month 82 (age 68), payment $637
+  Monthly gap: $-1,055
+  Year  age  benefit/mo  SNAP/mo  costs/mo   gap/yr     savings left (start $86,900)
+     1   62  $    1,919  $    37  $   2,974  $  -12,213  $     +74,687
+     2   63  $    1,969  $    40  $   3,040  $  -12,370  $     +62,317
+     3   64  $    2,021  $    42  $   3,109  $  -12,542  $     +49,775
+     4   65  $    2,074  $   207  $   3,540  $  -15,106  $     +34,669
+     5   66  $    2,129  $   216  $   3,629  $  -15,399  $     +19,271
+     6   67  $    2,185  $   226  $   3,539  $  -13,533  $      +5,738
+     7   68  $    2,242  $   237  $   3,379  $  -10,792  $      -5,054
+     8   69  $    2,301  $   249  $   4,008  $  -17,494  $     -22,549
+     9   70  $    2,362  $   260  $   4,109  $  -17,837  $     -40,386
+    10   71  $    2,424  $   273  $   4,213  $  -18,192  $     -58,578
+
+== The average retiree with no retirement account (46% of families): $2,071/month ==
+  Rent, with utilities (Census ACS 2024 median gross rent)       $   1,487
+  Car payment, used car (Experian Q2 2026)                       $     542
+  Car insurance (CE, per vehicle)                                $      89
+  Gasoline (CE, per vehicle)                                     $     100
+  Car maintenance (CE, per vehicle)                              $      46
+  Food at home (USDA low-cost plan, woman 51-70, Sep 2026)       $     269
+  Phone (CE telephone services, per person)                      $      60
+  Health insurance, benchmark silver after tax credit            $      96
+  Doctor, drugs, supplies out of pocket (CE, per person)         $      91
+  Clothing (CE, per person)                                      $      77
+  Personal care (CE, per person)                                 $      39
+  Household supplies (CE, per person)                            $      39
+  Internet (BLS CE 2024, all households, $697.90/yr; src/gaps-b/b07) $      58
+  Total, first month                                             $   2,993
+  (health insurance before the credit: $1,405)
+  From 65, Medicare replaces it: $410/month at 65, $451 at 71, in 2026 prices
+  Car loan ends after month 67.7; replacement car bought in month 82 (age 68), payment $637
+  Monthly gap: $-922
+  Year  age  benefit/mo  SNAP/mo  costs/mo   gap/yr     savings left (start $0)
+     1   62  $    2,071  $    24  $   2,993  $  -10,768  $     -10,768
+     2   63  $    2,125  $    25  $   3,059  $  -10,908  $     -21,676
+     3   64  $    2,181  $    25  $   3,128  $  -11,062  $     -32,738
+     4   65  $    2,239  $   133  $   3,540  $  -14,021  $     -46,759
+     5   66  $    2,298  $   141  $   3,629  $  -14,286  $     -61,045
+     6   67  $    2,358  $   149  $   3,539  $  -12,391  $     -73,436
+     7   68  $    2,420  $   157  $   3,379  $   -9,620  $     -83,055
+     8   69  $    2,484  $   167  $   4,008  $  -16,291  $     -99,347
+     9   70  $    2,549  $   176  $   4,109  $  -16,603  $    -115,949
+    10   71  $    2,616  $   186  $   4,213  $  -16,925  $    -132,874
+
+== The worked cases, side by side ==
+  The top earner: maximum benefit, median savings                    $2,969/mo  first-month gap $-154  $56,450 left at 71
+  The average retiree: average benefit, median savings               $2,071/mo  first-month gap $-922  runs out at 69
+  The widow: average survivor's benefit, median savings              $1,919/mo  first-month gap $-1,055  runs out at 68
+  The average retiree with no retirement account (46% of families)   $2,071/mo  first-month gap $-922  runs out at 62
+
+Work before full retirement age: SSA withholds $1 for every $2 earned above $24,480 a year.

@@ -1,0 +1,40 @@
+Pay $51,430; federal tax $3,992; payroll $3,934; take-home $3,625/month
+Health: 328.6% of poverty, pays 9.96% of income = $427/month (benchmark $491)
+Father, head of household: tax $0 after credits, refund $26 (EITC + refundable child credit); take-home $3,960/month
+
+== Father of one, national: two-bedroom $1,806, infant care $15,636 ==
+  Rent with utilities (HUD Fair Market Rent via NLIHC)       $  1,806
+  Deposit spread over a year (Zillow 2025 typical, $795)     $     66
+  Car payment, used (Experian Q2 2026)                       $    542
+  Car insurance (BLS CE 2024, households 25-34)              $    157
+  Food (USDA Thrifty plan)                                   $    477
+  Infant care in a center (Child Care Aware 2025)            $  1,303
+  Phone (BLS CE 2024, households 25-34)                      $    102
+  Internet (BLS CE 2024, all households, $697.90/yr)         $     58
+  Health insurance, his own benchmark plan after credit      $    427
+  Total                                                      $  4,938  = 125% of take-home (short $978/month)
+
+== Father of one, Texas: two-bedroom $1,557, infant care $10,894 ==
+  Rent with utilities (HUD Fair Market Rent via NLIHC)       $  1,557
+  Deposit spread over a year (Zillow 2025 typical, $795)     $     66
+  Car payment, used (Experian Q2 2026)                       $    542
+  Car insurance (BLS CE 2024, households 25-34)              $    157
+  Food (USDA Thrifty plan)                                   $    477
+  Infant care in a center (Child Care Aware 2025)            $    908
+  Phone (BLS CE 2024, households 25-34)                      $    102
+  Internet (BLS CE 2024, all households, $697.90/yr)         $     58
+  Health insurance, his own benchmark plan after credit      $    427
+  Total                                                      $  4,294  = 108% of take-home (short $334/month)
+
+== Alone, national: one-bedroom $1,518, no child ==
+  Rent with utilities (HUD Fair Market Rent via NLIHC)       $  1,518
+  Deposit spread over a year (Zillow 2025 typical, $795)     $     66
+  Car payment, used (Experian Q2 2026)                       $    542
+  Car insurance (BLS CE 2024, households 25-34)              $    157
+  Food (USDA Thrifty plan)                                   $    383
+  Phone (BLS CE 2024, households 25-34)                      $    102
+  Internet (BLS CE 2024, all households, $697.90/yr)         $     58
+  Health insurance, his own benchmark plan after credit      $    427
+  Total                                                      $  3,253  = 90% of take-home (left over $372/month)
+
+Not yet counted: the infant's health coverage (over Texas Medicaid's $3,571 and CHIP's $3,625 monthly limits for two, gaps-b/b01) and a family marketplace plan.
