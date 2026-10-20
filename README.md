@@ -49,6 +49,18 @@ The other documents the study cites, such as reports, fact sheets, rule books an
 
 Savings earn no return in the retiree cases, and the scripts charge no income tax on the retiree's benefit or withdrawals. A return would push each run-out age later; a tax would pull it earlier. The program limits come from federal rules and from Texas, and other states set some of them differently. `report/report.md` describes the method in full under "Methods".
 
+## How this study was written
+
+Tom Adelstein wrote this study with the Composer, the writing system he runs on his own computers.
+
+1. **Research.** He named the subject and the questions. Public documents went into a SQLite database, and each claim in the study traces back to a document and a page in it.
+2. **First drafts.** For Chapters 1 through 10, the Composer's inference server drafted each chapter with Kimi K3, working only from passages it retrieved from that database.
+3. **Voice and editing.** Claude, Anthropic's model, rewrote each draft in his house style, wrote the edit letters, and checked each figure and quotation against its source.
+4. **Chapter 11.** Chapter 11 states his own argument, built from his own words.
+5. **Numbers and figures.** The scripts in this repository computed every worked case and drew the charts. Google Gemini drew the summary infographic, Figure T, from the scripts' numbers.
+
+He read every chapter, made each decision, and decided what shipped.
+
 ## License
 
 The code carries the MIT License (`LICENSE`). The text of the study and its figures belong to Tom Adelstein, all rights reserved.
