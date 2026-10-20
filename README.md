@@ -49,7 +49,7 @@ The other documents the study cites, such as reports, fact sheets, rule books an
 
 Savings earn no return in the retiree cases, and the scripts charge no income tax on the retiree's benefit or withdrawals. A return would push each run-out age later; a tax would pull it earlier. The program limits come from federal rules and from Texas, and other states set some of them differently. `report/report.md` describes the method in full under "Methods".
 
-## How this study was written
+## How the author wrote this study
 
 Tom Adelstein wrote this study with the Composer, the writing system he runs on his own computers.
 
