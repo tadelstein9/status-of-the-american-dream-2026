@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>When Does Your Money Run Out?</title>
+<meta name="description" content="Type in your Social Security check, savings, rent and car payment and see the age your savings run out. A companion to Status of the American Dream 2026.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* A planner's worksheet: inputs on the left, the ten-year run and the program tests on the right; one column on a phone. */
+:root {
+  --paper: #f6f8f4; --sheet: #ffffff; --ink: #1d2620; --muted: #5d6b62;
+  --rule: #d5ddd6; --ledger: #2f6b4f; --short: #a8402c; --ok: #2f6b4f; --warn: #9a6a12;
+  --display: "Literata", Georgia, serif; --body: "Public Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121714; --sheet: #19201b; --ink: #e3ebe5; --muted: #9aab9f; --rule: #2c3830;
+  --ledger: #7cc4a0; --short: #f08a73; --ok: #7cc4a0; --warn: #e2b55a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121714; --sheet: #19201b; --ink: #e3ebe5; --muted: #9aab9f; --rule: #2c3830;
+  --ledger: #7cc4a0; --short: #f08a73; --ok: #7cc4a0; --warn: #e2b55a; color-scheme: dark }
+body { background: var(--paper); color: var(--ink); font: 15px/1.55 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header h1 { font: 700 clamp(28px, 4.5vw, 44px)/1.1 var(--display); margin: 0 0 8px; text-wrap: balance; }
+header p { margin: 0; max-width: 62ch; color: var(--muted); }
+.eyebrow { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ledger); margin-bottom: 6px; }
+.grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+@media (max-width: 820px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 18px; min-width: 0; }
+.sheet h2 { font: 600 13px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.field { display: grid; grid-template-columns: 1fr 120px; gap: 10px; align-items: center; padding: 7px 0; border-bottom: 1px dashed var(--rule); }
+.field label { font-size: 14px; }
+.field small { display: block; color: var(--muted); font-size: 12px; }
+.field input { width: 100%; box-sizing: border-box; font: 500 15px var(--mono); text-align: right; padding: 6px 8px;
+  border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font-variant-numeric: tabular-nums; }
+.field input:focus { outline: 2px solid var(--ledger); outline-offset: 1px; }
+.example { margin: 12px 0 0; font-size: 12px; color: var(--muted); }
+button { font: 600 13px var(--body); padding: 8px 12px; border-radius: 4px; border: 1px solid var(--ledger); background: transparent; color: var(--ledger); cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--ledger); outline-offset: 2px; }
+.verdict { font: 700 clamp(22px, 3.2vw, 32px)/1.2 var(--display); margin: 0 0 4px; text-wrap: balance; }
+.verdict .num { color: var(--short); }
+.verdict.lasts .num { color: var(--ok); }
+.sub { color: var(--muted); margin: 0 0 16px; }
+.chart { width: 100%; height: auto; display: block; }
+.tablewrap { overflow-x: auto; margin-top: 14px; }
+table { width: 100%; border-collapse: collapse; font: 13px var(--mono); font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; }
+th:first-child, td:first-child { text-align: left; }
+td.neg { color: var(--short); }
+.tests { display: grid; gap: 8px; margin-top: 4px; }
+.test { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px; }
+.test b { font-weight: 600; }
+.pill { font: 500 12px var(--mono); padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; align-self: start; }
+.pill.yes { color: var(--ok); } .pill.no { color: var(--short); }
+.test .why { grid-column: 1 / -1; color: var(--muted); font-size: 13px; }
+.stack { display: grid; gap: 24px; min-width: 0; }
+.sources { margin-top: 28px; font-size: 13px; color: var(--muted); }
+.sources ol { padding-left: 20px; }
+.sources a { color: var(--ledger); }
+
+.main .field label { font-weight: 600; }
+.subhead { font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 4px; }
+.note { font: 500 11px var(--mono); color: var(--muted); margin-left: 4px; }
+.seg { display: flex; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px dashed var(--rule); font-size: 14px; }
+.seg label { margin-right: auto; }
+.seg button[aria-pressed="true"] { background: var(--ledger); color: var(--sheet); }
+.buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.claim p, .about p { max-width: 70ch; }
+.claim a, .about a, header a { color: var(--ledger); }
+.copied { font-size: 12px; color: var(--ok); margin-left: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Status of the American Dream 2026 · Tom Adelstein</div>
+    <h1>When does your money run out?</h1>
+    <p>Type in your Social Security check, your savings, your rent and your car payment. You follow your money from 62 for ten years and see the age your savings run out. I used the same sources and the same arithmetic in the study <a href="https://tomadelstein.substack.com/p/status-of-the-american-dream-2026">Status of the American Dream 2026</a>.</p>
+  </header>
+
+  <div class="grid">
+    <form class="sheet" id="f" autocomplete="off">
+      <h2>Your numbers</h2>
+      <div class="main">
+        <div class="field"><label for="benefit">Social Security, a month<span class="note">5.1</span></label><input id="benefit" inputmode="decimal"></div>
+        <div class="field"><label for="savings">Savings today<span class="note">5.2</span></label><input id="savings" inputmode="decimal"></div>
+        <div class="field"><label for="rent">Rent with utilities, a month<span class="note">5.3</span></label><input id="rent" inputmode="decimal"></div>
+        <div class="field"><label for="carPayment">Car payment, a month<span class="note">5.4</span></label><input id="carPayment" inputmode="decimal"></div>
+      </div>
+      <div class="subhead">Filled in from the study</div>
+      <div class="field"><label for="carRunning">Car insurance, gas, upkeep<span class="note">5.5</span></label><input id="carRunning" inputmode="decimal"></div>
+      <div class="field"><label for="food">Food at home<span class="note">5.6</span></label><input id="food" inputmode="decimal"></div>
+      <div class="field"><label for="phone">Phone and internet<span class="note">5.5</span></label><input id="phone" inputmode="decimal"></div>
+      <div class="field"><label for="outOfPocket">Doctor and drug bills you pay<span class="note">5.5</span></label><input id="outOfPocket" inputmode="decimal"></div>
+      <div class="field"><label for="other">Clothing, personal care, supplies<span class="note">5.7</span></label><input id="other" inputmode="decimal"></div>
+      <div class="seg"><label>Medigap Plan G priced for<span class="note">5.11</span></label>
+        <button type="button" data-sex="women">a woman</button><button type="button" data-sex="men">a man</button></div>
+      <p class="example">I filled in the rest from the study's sources for a single renter who retires at 62. Replace any figure with your own. Beside each figure, I put the number of its endnote in the study.</p>
+      <div class="buttons">
+        <button type="button" id="reset">Start from the average retiree</button>
+        <button type="button" id="copy">Copy link</button><span class="copied" id="copied" hidden>Copied</span>
+      </div>
+    </form>
+
+    <div class="stack">
+      <section class="sheet" aria-live="polite">
+        <p class="verdict" id="verdict"></p>
+        <p class="sub" id="subline"></p>
+        <svg class="chart" id="chart" viewBox="0 0 640 220" role="img" aria-label="Savings left at the end of each year, ages 62 to 71"></svg>
+        <div class="tablewrap"><table id="tbl"></table></div>
+      </section>
+      <section class="sheet">
+        <h2>Help you qualify for at 62</h2>
+        <div class="tests" id="tests"></div>
+        <p class="example">Each agency draws its limit from the federal poverty guideline. In Chapter 6 of the study, I show how the average retiree misses most of them by a few dollars a month.</p>
+      </section>
+      <section class="sheet claim">
+        <h2>When to claim</h2>
+        <p>The age you take Social Security changes the age your savings run out, and Social Security and Mike Piper built two free tools for that decision. In a <a href="https://www.ssa.gov/benefits/retirement/estimator.html">my Social Security account</a>, Social Security works from your own earnings record and shows your check at 62, at full retirement age and at 70. Mike Piper wrote <a href="https://opensocialsecurity.com/">Open Social Security</a> to suggest a claiming age for a single person or a married couple. You give it your birth date, sex, marital status and the benefit at full retirement age from your Social Security statement.</p>
+        <p>For anyone born in 1960 or later, <a href="https://www.ssa.gov/oact/progdata/nra.html">full retirement age</a> comes at 67. If you claim at 62, you lose about 30% of the check for good. For each year you wait past 67, Social Security adds 8%, up to 70.</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="sources about">
+    <p><b>How the worksheet counts.</b> I follow one person who rents, retires at 62 and lives on Social Security and savings for ten years. Prices climb 2.73% a year and the check rises 2.63%, the averages from 2010 to 2024. Until 65, you buy a benchmark silver plan on the marketplace with the federal tax credit. From 65, you pay the Medicare Part B and Part D premiums and a Medigap Plan G policy priced from one Texas insurer's 2026 filing. You make the same car payment until the loan ends, and at 68 you buy a replacement car on a new loan. I count no return on your savings and leave out income tax. A return would push the run-out age later, and a tax would pull it earlier.</p>
+    <p>The food stamp, Plan G and utility figures follow Texas rules. Other states set some of them differently.</p>
+    <p>I tell you when the money runs out on the figures you enter. I give no advice on when to retire or what to buy.</p>
+    <p>Your browser does the arithmetic. Your figures stay on your computer unless you copy the link and send it to someone.</p>
+    <p>The numbers beside each figure match the endnotes in <a href="https://tomadelstein.substack.com/p/status-of-the-american-dream-2026">the study</a>. The scripts and their sources sit in <a href="https://github.com/tadelstein9/status-of-the-american-dream-2026">the study's repository</a>, with a test that checks this page against them.</p>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="model.js"></script>
+<script>
+const D = window.RUNOUT, M = window.RunOut;
+const FIELDS = ["benefit", "savings", "rent", "carPayment", "carRunning", "food", "phone", "outOfPocket", "other"];
+const START = Object.assign({ benefit: D.benefits.average, savings: D.savings }, D.defaults);
+let sex = "women";
+
+const $ = id => document.getElementById(id);
+const money = n => (n < 0 ? "−$" : "$") + Math.round(Math.abs(n)).toLocaleString("en-US");
+const plain = n => String(Math.round(n));
+
+// A field left at its rounded starting value keeps the study's exact figure.
+function read() {
+  const v = { sex };
+  for (const k of FIELDS) {
+    const raw = String($(k).value).replace(/[$,\s]/g, "");
+    const n = parseFloat(raw);
+    v[k] = raw === plain(START[k]) ? START[k] : (isFinite(n) ? n : 0);
+  }
+  return v;
+}
+
+function fill(values) {
+  for (const k of FIELDS) $(k).value = plain(values[k]);
+  document.querySelectorAll("[data-sex]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.sex === sex)));
+}
+
+function draw(rows) {
+  const W = 640, H = 220, L = 64, R = 16, T = 14, B = 30;
+  const vals = rows.map(r => r.balance), max = Math.max(1, ...vals, 0), min = Math.min(0, ...vals);
+  const y = n => T + (max - n) / (max - min) * (H - T - B);
+  const bw = (W - L - R) / rows.length;
+  const ticks = [...new Set([max, (max + min) / 2, min].map(t => Math.round(t / 1000) * 1000))];
+  let s = "";
+  for (const t of ticks) s += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="var(--rule)"/><text x="${L - 8}" y="${y(t) + 4}" text-anchor="end" font-family="var(--mono)" font-size="11" fill="var(--muted)">${money(t)}</text>`;
+  s += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="var(--ink)" stroke-width="1.2"/>`;
+  rows.forEach((r, i) => {
+    const x = L + i * bw + bw * .18, w = bw * .64, top = Math.min(y(r.balance), y(0)), h = Math.max(1, Math.abs(y(r.balance) - y(0)));
+    s += `<rect x="${x}" y="${top}" width="${w}" height="${h}" fill="${r.balance < 0 ? "var(--short)" : "var(--ledger)"}" rx="2"><title>Age ${r.age}: ${money(r.balance)}</title></rect>`;
+    s += `<text x="${x + w / 2}" y="${H - 10}" text-anchor="middle" font-family="var(--mono)" font-size="11" fill="var(--muted)">${r.age}</text>`;
+  });
+  $("chart").innerHTML = s;
+}
+
+function test(name, over, limitText, extra, note) {
+  const ok = over <= 0;
+  const why = ok ? `Under the limit by ${money(-over)} a month` : `Over the limit by ${money(over)} a month`;
+  return `<div class="test"><b>${name}</b><span class="pill ${ok ? "yes" : "no"}">${ok ? "Qualifies" : "Misses it"}</span><span class="why">${why}${extra || ""} · ${limitText}<span class="note">${note}</span></span></div>`;
+}
+
+function render() {
+  const v = read(), r = M.run(v, D), p = M.programs(v, D), first = r.rows[0];
+  const vd = $("verdict");
+  if (r.out !== null) { vd.className = "verdict"; vd.innerHTML = `Your savings run out at age <span class="num">${r.out}</span>.`; }
+  else { vd.className = "verdict lasts"; vd.innerHTML = `Your savings last past <span class="num">71</span>, with ${money(r.rows[9].balance)} left.`; }
+  $("subline").textContent = `In your first year, ${money(first.benefit)} a month comes in and ${money(first.costs)} goes out. Until you join Medicare at 65, you pay ${money(r.health)} a month for a marketplace plan after the federal tax credit.`;
+  draw(r.rows);
+  $("tbl").innerHTML = "<tr><th>Age</th><th>Check a month</th><th>Food stamps a month</th><th>Costs a month</th><th>Gap for the year</th><th>Savings left</th></tr>" +
+    r.rows.map(x => `<tr><td>${x.age}</td><td>${money(x.benefit)}</td><td>${money(x.snap)}</td><td>${money(x.costs)}</td><td class="${x.gap < 0 ? "neg" : ""}">${money(x.gap)}</td><td class="${x.balance < 0 ? "neg" : ""}">${money(x.balance)}</td></tr>`).join("");
+  const L = D.limits;
+  $("tests").innerHTML = [
+    test("Food stamps (SNAP)", p.snap.over, `Texas net income limit $${D.snap.fy27[0].toLocaleString("en-US")} after rent and medical deductions`, p.snap.amount ? `; you would get ${money(p.snap.amount)} a month` : "", "6.4"),
+    test("Extra Help with drug costs", p.extraHelp.over, `limit ${money(L.extraHelp)} after the first $20`, "", "6.5"),
+    test("Medicare Savings Program (pays Part B)", p.qi.over, `limit ${money(L.qi)}`, "", "6.6"),
+    test("Texas utility bill help (CEAP)", p.ceap.over, `limit ${money(L.ceapYear)} a year`, "", "6.8"),
+    test("Food bank groceries (TEFAP)", p.tefap.over, `limit ${money(L.tefapYear)} a year`, "", "6.9"),
+  ].join("");
+  history.replaceState(null, "", "#" + share(v));
+}
+
+// The link carries only the figures that differ from the starting example.
+function share(v) {
+  const q = new URLSearchParams();
+  for (const k of FIELDS) if (v[k] !== START[k]) q.set(k, plain(v[k]));
+  if (sex !== "women") q.set("sex", sex);
+  return q.toString();
+}
+
+function load() {
+  const q = new URLSearchParams(location.hash.slice(1)), values = Object.assign({}, START);
+  for (const k of FIELDS) if (q.has(k) && isFinite(parseFloat(q.get(k)))) values[k] = parseFloat(q.get(k));
+  if (q.get("sex") === "men") sex = "men";
+  fill(values);
+}
+
+$("f").addEventListener("input", render);
+$("f").addEventListener("submit", e => e.preventDefault());
+document.querySelectorAll("[data-sex]").forEach(b => b.addEventListener("click", () => { sex = b.dataset.sex; fill(read()); render(); }));
+$("reset").addEventListener("click", () => { sex = "women"; fill(START); render(); });
+$("copy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(location.href); $("copied").hidden = false; setTimeout(() => $("copied").hidden = true, 2000); }
+  catch (e) { $("copied").textContent = location.href; $("copied").hidden = false; }
+});
+window.addEventListener("hashchange", () => { if (location.hash.slice(1) !== share(read())) { sex = "women"; load(); render(); } });
+load();
+render();
+</script>
+</body>
+</html>
