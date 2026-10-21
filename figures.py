@@ -144,7 +144,7 @@ def fig_runout():
                  loc="left", fontsize=11 * K, color=INK, pad=10)
     fig.text(0.01, -0.03, "Each rents alone at the median rent and drives a used car on a loan; median retirement savings "
              "$86,900 except the last case. Medicare at 65; car replaced at 68;\nTexas SNAP counted. Prices rise 2.73% a year "
-             "(BLS R-CPI-E), benefits 2.63% (CPI-W). Sources in sources.md. Computed by arithmetic.py.",
+             "(BLS R-CPI-E), benefits 2.63% (CPI-W). Sources in the Chapter 5 endnotes. Computed by arithmetic.py.",
              fontsize=7.5 * K, color=INK2, ha="left", va="top")
     save(fig, "fig-5-1-retirement-run-out")
 
@@ -405,7 +405,7 @@ def fig_limits():
                  loc="left", fontsize=11 * K, color=INK, pad=10)
     note(fig, "One person, average retired-worker benefit (SSA, January 2026). Extra Help counts income after a \\$20 "
          "disregard. SNAP is not shown: she qualifies for the \\$25 minimum.\nSources: SSA EN-05-10508; Medicare.gov; "
-         "Texas Department of Housing and Community Affairs; Texas Department of Agriculture. Details in sources.md.", y=-0.16)
+         "Texas Department of Housing and Community Affairs; Texas Department of Agriculture. Details in the Chapter 6 endnotes.", y=-0.16)
     save(fig, "fig-6-1-program-limits")
 
 
